@@ -3,16 +3,45 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MaterialModel} from "./material-model";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {authInterceptorProviders} from "./helper/auth-interceptor.service";
+import {authErrorInterceptorProviders} from "./helper/error-interceptor.service";
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { NavigationComponent } from './layout/navigation/navigation.component';
+import {CommonModule} from "@angular/common";
+import { IndexComponent } from './layout/index/index.component';
+import { AddPostComponent } from './user/add-post/add-post.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { UserPostsComponent } from './user/user-posts/user-posts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavigationComponent,
+    IndexComponent,
+    AddPostComponent,
+    ProfileComponent,
+    EditUserComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MaterialModel,
+    HttpClientModule,
+    FormsModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders, authErrorInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
